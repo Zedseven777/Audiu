@@ -1,6 +1,15 @@
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play().then(() => {
+      musicBtn.textContent = '🔈';
+    }).catch((err) => {
+      console.error("Erro ao tocar música:", err);
+      alert("Clique novamente para permitir o som.");
+    });
+  } else {
+    bgMusic.pause();
+    musicBtn.textContent = '🔊';
+  }
+}
 
-<!-- BOTÃO DE MÚSICA -->
-<button id="musicBtn" onclick="document.getElementById('bgMusic').play()">🔊</button>
 
-<!-- ÁUDIO -->
-<audio id="bgMusic" src="https://files.catbox.moe/9on8kb.mp3" loop preload="auto"></audio>
